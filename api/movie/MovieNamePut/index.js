@@ -31,7 +31,7 @@ module.exports = makeInjectable(
         return res.status(404).json({ error: "No movie found" });
       }
 
-      movie.name = movieName.trim();
+      movie.title = movieName.trim();
       await movie.save();
 
       return res.status(204).send();
