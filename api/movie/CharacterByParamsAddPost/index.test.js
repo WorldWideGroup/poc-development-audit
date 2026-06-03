@@ -10,7 +10,7 @@ const makeReq = (movie_id, mainCharacterName) => ({
 
 const movieDoc = {
   _id: "690b9436fb29d9d76b2a0dc2",
-  name: "The Lord of the Rings: The War of the Rohirrim",
+  title: "The Lord of the Rings: The War of the Rohirrim",
   releaseYear: 2024,
   characters: [{ name: "Helm" }],
 };
@@ -26,7 +26,7 @@ test("CharacterByParamsAddPost adds character and returns the movie", async () =
 
   expect(res.status).toHaveBeenCalledWith(200);
   const body = res.json.mock.calls[0][0];
-  expect(body.name).toBe(movieDoc.name);
+  expect(body.title).toBe(movieDoc.title);
   const names = body.characters.map((c) => c.name);
   expect(names).toEqual(expect.arrayContaining(["Helm", "Olwyn"]));
 });
