@@ -19,6 +19,9 @@ mongoose
 const app = express();
 const PORT = process.env.PORT || 3750;
 
+// Allows Express to parse JSON request bodies for POST routes
+app.use(express.json());
+
 //Routes
 const findRoutes = require("./helpers/findRoutes");
 const mountRoute = require("./helpers/mountRoute");
