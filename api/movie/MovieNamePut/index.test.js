@@ -6,13 +6,13 @@ const makeReq = (body) => ({ body, header: {} });
 
 const movieDoc = () => ({
   _id: "690b9436fb29d9d76b2a0dc2",
-  name: "Old Name",
+  title: "Old Title",
   releaseYear: 2024,
   characters: [],
   save: jest.fn().mockResolvedValue(true),
 });
 
-test("MovieNamePut updates name and returns 204 with no body", async () => {
+test("MovieNamePut updates title and returns 204 with no body", async () => {
   const movie = movieDoc();
   const MovieModel = { findOne: jest.fn().mockResolvedValue(movie) };
 
@@ -25,7 +25,8 @@ test("MovieNamePut updates name and returns 204 with no body", async () => {
   expect(res.status).toHaveBeenCalledWith(204);
   expect(res.send).toHaveBeenCalled();
   expect(res.json).not.toHaveBeenCalled();
-  expect(movie.name).toBe("Brand New Title");
+  expect(movie.title).toBe("Brand New Title");
+  expect(movie.name).toBeUndefined();
   expect(movie.save).toHaveBeenCalledTimes(1);
 });
 

@@ -20,7 +20,8 @@ test("MovieAddPost creates and returns the new movie", async () => {
 
   expect(res.status).toHaveBeenCalledWith(200);
   const body = res.json.mock.calls[0][0];
-  expect(body.name).toBe(validBody.movieName);
+  expect(body.title).toBe(validBody.movieName);
+  expect(body.name).toBeUndefined();
   expect(body.releaseYear).toBe(2024);
   expect(body.characters).toEqual([]);
   expect(body._id).toBeDefined();

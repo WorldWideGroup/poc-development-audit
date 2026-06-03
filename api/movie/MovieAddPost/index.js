@@ -35,7 +35,7 @@ module.exports = makeInjectable(
 
       const created = await MovieModel.create({
         _id: new mongoose.Types.ObjectId(),
-        name: movieName.trim(),
+        title: movieName.trim(),
         releaseYear: year,
         characters: [],
       });
