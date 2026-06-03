@@ -30,10 +30,26 @@ test("MoviesAllGet returns list of Movies", async() => {
         "../api/movies/_test/json-responses/movies-get-response.json"
     );
 
-    // Remove _id from expected to match the received (mocked data without _id)
-    movieResponse.forEach(movie => delete movie._id);
+    const normalize = (arr) =>
+        arr.map(m => {
+            const doc = typeof m.toObject === "function" ? m.toObject() : m;
+            const { _id, ...rest } = doc;
+            return {
+                ...rest,
+                characters: (doc.characters || []).map(c => {
+                    const cdoc = typeof c.toObject === "function" ? c.toObject() : c;
+                    const { _id: _cid, ...crest } = cdoc;
+                    return crest;
+                }),
+            };
+        });
 
-    expect(JSON.stringify(body)).toBe(JSON.stringify(movieResponse));
+    const expected = movieResponse.map(m => {
+        const { _id, ...rest } = m;
+        return rest;
+    });
+
+    expect(JSON.stringify(normalize(body))).toBe(JSON.stringify(expected));
 });
 
 test("MoviesAllGet returns list of Movies sorted by releaseYear from oldest to newest", async() => {
