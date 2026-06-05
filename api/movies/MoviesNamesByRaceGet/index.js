@@ -14,7 +14,7 @@ module.exports = makeInjectable({
     for (const movie of movies) {
       const movieTitle = movie.title || movie.name;
       for (const character of movie.characters) {
-        if (character.race.toLowerCase() === raceName.toLowerCase()) {
+        if (character.race && character.race.toLowerCase() === raceName.toLowerCase()) {
           if (!characterMap.has(character.name)) {
             characterMap.set(character.name, { name: character.name, movies: [] });
           }

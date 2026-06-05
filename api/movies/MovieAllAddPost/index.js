@@ -11,13 +11,14 @@ module.exports = makeInjectable({
     const result = [];
 
     for (const item of movies) {
-      const exists = await MovieModel.findById(item._id);
+      const rawId = item._id && item._id.$oid ? item._id.$oid : item._id;
+      const exists = await MovieModel.findById(rawId);
 
       if (exists) {
         result.push({ ...item, status: "NOT ADDED" });
       } else {
         const movie = new MovieModel({
-          _id: new mongoose.Types.ObjectId(item._id),
+          _id: new mongoose.Types.ObjectId(rawId),
           title: item.title,
           releaseYear: item.releaseYear,
           characters: item.characters || []
