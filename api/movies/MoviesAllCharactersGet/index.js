@@ -6,7 +6,7 @@ module.exports = makeInjectable({
   }
 }, async function({MovieModel}, req, res) {
   try {
-    const movies = await MovieModel.find().sort({ releaseYear: 1 });
+    const movies = (await MovieModel.find()).sort((a, b) => a.releaseYear - b.releaseYear);
 
     const seen = new Set();
     const characters = [];

@@ -86,9 +86,7 @@ test("MoviesAllCharactersGet returns empty array when no movies", async () => {
 });
 
 test("MoviesAllCharactersGet returns 500 on database error", async () => {
-  jest.spyOn(MovieModel, "find").mockReturnValue({
-    sort: jest.fn().mockRejectedValue(new Error("Database connection failed"))
-  });
+  jest.spyOn(MovieModel, "find").mockRejectedValue(new Error("Database connection failed"));
 
   let req = {};
   let res = makeMockRes();
