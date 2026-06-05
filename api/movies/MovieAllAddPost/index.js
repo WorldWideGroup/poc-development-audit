@@ -7,7 +7,7 @@ module.exports = makeInjectable({
   }
 }, async function({MovieModel}, req, res) {
   try {
-    const movies = req.body || [];
+    const movies = Array.isArray(req.body) ? req.body : [];
     const result = [];
 
     for (const item of movies) {
@@ -30,6 +30,7 @@ module.exports = makeInjectable({
 
     return res.status(200).json(result);
   } catch (error) {
+    console.error("MovieAllAddPost error:", error.message);
     return res.status(500).json({ error: "Database error" });
   }
 });
