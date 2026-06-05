@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "69efd1c1b2f8c7327f029fad"
+  },
+  "title": "The Lord of the Rings: The Fellowship of the Ring",
+  "releaseYear": 2001,
+  "characters": [
+    { "name": "Frodo Baggins", "race": "Hobbit" },
+    { "name": "Gandalf the Grey", "race": "Maia (Wizard)" },
+    { "name": "Aragorn", "race": "Man" },
+    { "name": "Legolas", "race": "Elf" },
+    { "name": "Gimli", "race": "Dwarf" },
+    { "name": "Boromir", "race": "Man" },
+    { "name": "Samwise Gamgee", "race": "Hobbit" },
+    { "name": "Saruman the White", "race": "Maia (Wizard)" }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69efd1c1b2f8c7327f029fae"
+  },
+  "title": "The Lord of the Rings: The Two Towers",
+  "releaseYear": 2002,
+  "characters": [
+    { "name": "Frodo Baggins", "race": "Hobbit" },
+    { "name": "Aragorn", "race": "Man" },
+    { "name": "Gollum", "race": "Hobbit (Corrupted)" },
+    { "name": "Theoden", "race": "Man" },
+    { "name": "Eowyn", "race": "Man" },
+    { "name": "Treebeard", "race": "Ent" },
+    { "name": "Faramir", "race": "Man" }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69efd1c1b2f8c7327f029faf"
+  },
+  "title": "The Lord of the Rings: The Return of the King",
+  "releaseYear": 2003,
+  "characters": [
+    { "name": "Frodo Baggins", "race": "Hobbit" },
+    { "name": "Aragorn", "race": "Man" },
+    { "name": "Gandalf the White", "race": "Maia (Wizard)" },
+    { "name": "Arwen", "race": "Elf" },
+    { "name": "Elrond", "race": "Elf" },
+    { "name": "Sauron", "race": "Maia (Dark Lord)" },
+    { "name": "Witch-king of Angmar", "race": "Wraith" }
+  ]
+}]

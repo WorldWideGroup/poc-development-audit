@@ -12,11 +12,13 @@ const mongoose = require("mongoose");
 mongoose
   .connect(
     "mongodb://cosmos-wwg-dev-centralus:2IO6XwrVqSxCXl2AFiQzO1CQ7VdbpqrkmE60dS5N609mPvQ5e507GgWNoNnXP1JxwTopBxLtlWfXQcjMSpAdIw==@cosmos-wwg-dev-centralus.mongo.cosmos.azure.com:10255/test?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-wwg-dev-centralus@",
+    { serverSelectionTimeoutMS: 10000 }
   )
   .then(() => console.log("Connected to MongoDB!"))
   .catch((error) => console.log("Detailed Connection Error:", error));
 
 const app = express();
+app.use(express.json());
 const PORT = process.env.PORT || 3750;
 
 //Routes

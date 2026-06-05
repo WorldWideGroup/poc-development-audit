@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "69efd1c1b2f8c7327f029fb0"
+  },
+  "title": "The Hobbit: An Unexpected Journey",
+  "releaseYear": 2012,
+  "characters": [
+    { "name": "Bilbo Baggins", "race": "Hobbit" },
+    { "name": "Gandalf the Grey", "race": "Maia (Wizard)" },
+    { "name": "Thorin Oakenshield", "race": "Dwarf" },
+    { "name": "Balin", "race": "Dwarf" },
+    { "name": "Radagast the Brown", "race": "Maia (Wizard)" },
+    { "name": "Galadriel", "race": "Elf" }
+  ]
+}]
