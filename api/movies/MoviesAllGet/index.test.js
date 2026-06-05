@@ -30,10 +30,15 @@ test("MoviesAllGet returns list of Movies", async() => {
         "../api/movies/_test/json-responses/movies-get-response.json"
     );
 
-    // Remove _id from expected to match the received (mocked data without _id)
+    // Convert to plain objects so we can delete Mongoose subdocument _id fields
+    const plainBody = JSON.parse(JSON.stringify(body));
+    plainBody.forEach(movie => {
+        delete movie._id;
+        movie.characters.forEach(c => delete c._id);
+    });
     movieResponse.forEach(movie => delete movie._id);
 
-    expect(JSON.stringify(body)).toBe(JSON.stringify(movieResponse));
+    expect(JSON.stringify(plainBody)).toBe(JSON.stringify(movieResponse));
 });
 
 test("MoviesAllGet returns list of Movies sorted by releaseYear from oldest to newest", async() => {
